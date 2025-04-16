@@ -6,7 +6,8 @@
       "scope": "text.html.ejs",
       "path": ".",
       "file-types": [
-        "ejs"
+        "ejs",
+        "ejx"
       ],
       "injections": "queries/injections-ejs.scm",
       "injection-regex": "ejs"
