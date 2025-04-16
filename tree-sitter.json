@@ -3,12 +3,9 @@
     {
       "name": "embedded-template",
       "camelcase": "EmbeddedTemplate",
-      "scope": "text.html.ejs",
+      "scope": "text.html.ejx",
       "path": ".",
-      "file-types": [
-        "ejs",
-        "ejx"
-      ],
+      "file-types": ["ejs", "ejx"],
       "injections": "queries/injections-ejs.scm",
       "injection-regex": "ejs"
     },
@@ -17,9 +14,7 @@
       "camelcase": "EmbeddedTemplate",
       "scope": "text.html.erb",
       "path": ".",
-      "file-types": [
-        "erb"
-      ],
+      "file-types": ["erb"],
       "injections": "queries/injections-erb.scm",
       "injection-regex": "erb"
     }
