@@ -1,5 +1,4 @@
 {
-  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
   "name": "embedded_template",
   "rules": {
     "template": {
@@ -33,17 +32,8 @@
     "code": {
       "type": "REPEAT1",
       "content": {
-        "type": "CHOICE",
-        "members": [
-          {
-            "type": "PATTERN",
-            "value": "[^%=_-]+|[%=_-]"
-          },
-          {
-            "type": "STRING",
-            "value": "%%>"
-          }
-        ]
+        "type": "PATTERN",
+        "value": "[^\\]]+"
       }
     },
     "content": {
@@ -52,17 +42,8 @@
       "content": {
         "type": "REPEAT1",
         "content": {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "PATTERN",
-              "value": "[^<]+|<"
-            },
-            {
-              "type": "STRING",
-              "value": "<%%"
-            }
-          ]
+          "type": "PATTERN",
+          "value": "[^\\[]+"
         }
       }
     },
@@ -70,21 +51,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "<%"
-            },
-            {
-              "type": "STRING",
-              "value": "<%_"
-            },
-            {
-              "type": "STRING",
-              "value": "<%|"
-            }
-          ]
+          "type": "STRING",
+          "value": "[["
         },
         {
           "type": "CHOICE",
@@ -99,21 +67,8 @@
           ]
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "%>"
-            },
-            {
-              "type": "STRING",
-              "value": "-%>"
-            },
-            {
-              "type": "STRING",
-              "value": "_%>"
-            }
-          ]
+          "type": "STRING",
+          "value": "]]"
         }
       ]
     },
@@ -125,23 +80,11 @@
           "members": [
             {
               "type": "STRING",
-              "value": "<%="
+              "value": "[[="
             },
             {
               "type": "STRING",
-              "value": "<%=="
-            },
-            {
-              "type": "STRING",
-              "value": "<%|="
-            },
-            {
-              "type": "STRING",
-              "value": "<%|=="
-            },
-            {
-              "type": "STRING",
-              "value": "<%-"
+              "value": "[[-"
             }
           ]
         },
@@ -158,21 +101,8 @@
           ]
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "%>"
-            },
-            {
-              "type": "STRING",
-              "value": "-%>"
-            },
-            {
-              "type": "STRING",
-              "value": "=%>"
-            }
-          ]
+          "type": "STRING",
+          "value": "]]"
         }
       ]
     },
@@ -181,7 +111,7 @@
       "members": [
         {
           "type": "STRING",
-          "value": "<%#"
+          "value": "[[#"
         },
         {
           "type": "CHOICE",
@@ -202,7 +132,7 @@
         },
         {
           "type": "STRING",
-          "value": "%>"
+          "value": "]]"
         }
       ]
     },
@@ -211,7 +141,7 @@
       "members": [
         {
           "type": "STRING",
-          "value": "<%graphql"
+          "value": "[[graphql"
         },
         {
           "type": "CHOICE",
@@ -227,7 +157,7 @@
         },
         {
           "type": "STRING",
-          "value": "%>"
+          "value": "]]"
         }
       ]
     }

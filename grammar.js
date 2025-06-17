@@ -21,32 +21,32 @@ module.exports = grammar({
       $.content,
     )),
 
-    code: _ => repeat1(choice(/[^%=_-]+|[%=_-]/, '%%>')),
+    code: _ => repeat1(/[^\]]+/),
 
-    content: _ => prec.right(repeat1(choice(/[^<]+|</, '<%%'))),
+    content: _ => prec.right(repeat1(/[^\[]+/)),
 
     directive: $ => seq(
-      choice('<%', '<%_', '<%|'),
+      '[[',
       optional($.code),
-      choice('%>', '-%>', '_%>'),
+      ']]',
     ),
 
     output_directive: $ => seq(
-      choice('<%=', '<%==', '<%|=', '<%|==', '<%-'),
+      choice('[[=', '[[-'),
       optional($.code),
-      choice('%>', '-%>', '=%>'),
+      ']]',
     ),
 
     comment_directive: $ => seq(
-      '<%#',
+      choice('[[#', '[[//'),
       optional(alias($.code, $.comment)),
-      '%>',
+      ']]',
     ),
 
     graphql_directive: $ => seq(
-      '<%graphql',
+      '[[graphql',
       optional($.code),
-      '%>',
+      ']]',
     ),
   },
 });
