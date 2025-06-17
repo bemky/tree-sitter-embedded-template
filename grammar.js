@@ -8,7 +8,7 @@
 // @ts-check
 
 module.exports = grammar({
-  name: 'embedded_template',
+  name: 'embedded_javascript_template',
 
   extras: _ => [],
 
