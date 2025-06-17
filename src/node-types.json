@@ -107,67 +107,31 @@
     }
   },
   {
-    "type": "%%>",
+    "type": "[[",
     "named": false
   },
   {
-    "type": "%>",
+    "type": "[[#",
     "named": false
   },
   {
-    "type": "-%>",
+    "type": "[[-",
     "named": false
   },
   {
-    "type": "<%",
+    "type": "[[//",
     "named": false
   },
   {
-    "type": "<%#",
+    "type": "[[=",
     "named": false
   },
   {
-    "type": "<%%",
+    "type": "[[graphql",
     "named": false
   },
   {
-    "type": "<%-",
-    "named": false
-  },
-  {
-    "type": "<%=",
-    "named": false
-  },
-  {
-    "type": "<%==",
-    "named": false
-  },
-  {
-    "type": "<%_",
-    "named": false
-  },
-  {
-    "type": "<%graphql",
-    "named": false
-  },
-  {
-    "type": "<%|",
-    "named": false
-  },
-  {
-    "type": "<%|=",
-    "named": false
-  },
-  {
-    "type": "<%|==",
-    "named": false
-  },
-  {
-    "type": "=%>",
-    "named": false
-  },
-  {
-    "type": "_%>",
+    "type": "]]",
     "named": false
   }
 ]
