@@ -107,6 +107,18 @@
     }
   },
   {
+    "type": "-]]",
+    "named": false
+  },
+  {
+    "type": "=]]",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
     "type": "[[",
     "named": false
   },
@@ -127,11 +139,43 @@
     "named": false
   },
   {
+    "type": "[[==",
+    "named": false
+  },
+  {
+    "type": "[[[",
+    "named": false
+  },
+  {
+    "type": "[[_",
+    "named": false
+  },
+  {
     "type": "[[graphql",
     "named": false
   },
   {
+    "type": "[[|",
+    "named": false
+  },
+  {
+    "type": "[[|=",
+    "named": false
+  },
+  {
+    "type": "[[|==",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
     "type": "]]",
+    "named": false
+  },
+  {
+    "type": "_]]",
     "named": false
   }
 ]

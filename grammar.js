@@ -21,20 +21,20 @@ module.exports = grammar({
       $.content,
     )),
 
-    code: _ => repeat1(/[^\]]+/),
+    code: _ => repeat1(choice(/[^\]]+/, ']')),
 
-    content: _ => prec.right(repeat1(/[^\[]+/)),
+    content: _ => prec.right(repeat1(choice(/[^\[]+/, '[', '[[['))),
 
     directive: $ => seq(
-      '[[',
+      choice('[[', '[[_', '[[|'),
       optional($.code),
-      ']]',
+      choice(']]', '-]]', '_]]'),
     ),
 
     output_directive: $ => seq(
-      choice('[[=', '[[-'),
+      choice('[[=', '[[==', '[[|=', '[[|==', '[[-'),
       optional($.code),
-      ']]',
+      choice(']]', '-]]', '=]]'),
     ),
 
     comment_directive: $ => seq(

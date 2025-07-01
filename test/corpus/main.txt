@@ -3,18 +3,18 @@ Directives
 ====================
 
 <div>
-  <% names.each do |name| _%>
+  [[ names.each do |name| _]]
     <div>
-      <%= name -%>
-      <%== x %>
-      <%|= x %>
-      <%== x %>
-      <%| end %>
+      [[= name -]]
+      [[== x ]]
+      [[|= x ]]
+      [[== x ]]
+      [[| end ]]
     </div>
     <span>
-      <% something() -%>
+      [[ something() -]]
     </span>
-  <%_ end %>
+  [[_ end ]]
 </div>
 
 ---
@@ -42,7 +42,7 @@ Directives
 Escaped directive start strings
 ===============================
 
-This "<%%" is not a directive
+This "[[[" is not a directive
 
 ---
 
@@ -52,11 +52,14 @@ This "<%%" is not a directive
 Comment directives
 ===============================
 
-<span><%# a comment %></span>
+<span>[[# a comment ]]</span>
+<span>[[// a comment ]]</span>
 
 ---
 
 (template
+  (content)
+  (comment_directive (comment))
   (content)
   (comment_directive (comment))
   (content))
@@ -66,7 +69,7 @@ Underscores in code
 ===============================
 
 <div>
-<% page_info :selected_link %>
+[[ page_info :selected_link ]]
 </div>
 
 ---
@@ -80,24 +83,24 @@ Underscores in code
 Empty directive
 ===============================
 
-<% %>
-  <%= "hello" %>
+[[ ]]
+  [[= "hello" ]]
 
 ---
 
-(template 
+(template
   (content)
   (directive (code))
   (content)
   (output_directive (code))
   (content)
-) 
+)
 
 ===============================
 Empty comment
 ===============================
 
-<%#%>
+[[#]]
 
 ---
 
@@ -110,28 +113,30 @@ Empty comment
 Empty directives
 ===============================
 
-<%%>
-<% %>
-<%-%>
-<% -%>
-<%_ %>
-<%_%>
-<%_-%>
-<%__%>
-<%=%>
-<%=-%>
-<%==%>
-<%-%>
-<%--%>
-<%-=%>
-<%#%>
-<%graphql%>
-<%|%>
-<%|=%>
-<%|==%>
+[[]]
+[[ ]]
+[[-]]
+[[ -]]
+[[_ ]]
+[[_]]
+[[_-]]
+[[__]]
+[[=]]
+[[=-]]
+[[==]]
+[[-]]
+[[--]]
+[[-=]]
+[[#]]
+[[graphql]]
+[[|]]
+[[|=]]
+[[|==]]
 ---
 
 (template
+  (content)
+  (directive)
   (content)
   (directive (code))
   (content)

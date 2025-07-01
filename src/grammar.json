@@ -33,8 +33,17 @@
     "code": {
       "type": "REPEAT1",
       "content": {
-        "type": "PATTERN",
-        "value": "[^\\]]+"
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "PATTERN",
+            "value": "[^\\]]+"
+          },
+          {
+            "type": "STRING",
+            "value": "]"
+          }
+        ]
       }
     },
     "content": {
@@ -43,8 +52,21 @@
       "content": {
         "type": "REPEAT1",
         "content": {
-          "type": "PATTERN",
-          "value": "[^\\[]+"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "[^\\[]+"
+            },
+            {
+              "type": "STRING",
+              "value": "["
+            },
+            {
+              "type": "STRING",
+              "value": "[[["
+            }
+          ]
         }
       }
     },
@@ -52,8 +74,21 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "[["
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "[["
+            },
+            {
+              "type": "STRING",
+              "value": "[[_"
+            },
+            {
+              "type": "STRING",
+              "value": "[[|"
+            }
+          ]
         },
         {
           "type": "CHOICE",
@@ -68,8 +103,21 @@
           ]
         },
         {
-          "type": "STRING",
-          "value": "]]"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "]]"
+            },
+            {
+              "type": "STRING",
+              "value": "-]]"
+            },
+            {
+              "type": "STRING",
+              "value": "_]]"
+            }
+          ]
         }
       ]
     },
@@ -82,6 +130,18 @@
             {
               "type": "STRING",
               "value": "[[="
+            },
+            {
+              "type": "STRING",
+              "value": "[[=="
+            },
+            {
+              "type": "STRING",
+              "value": "[[|="
+            },
+            {
+              "type": "STRING",
+              "value": "[[|=="
             },
             {
               "type": "STRING",
@@ -102,8 +162,21 @@
           ]
         },
         {
-          "type": "STRING",
-          "value": "]]"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "]]"
+            },
+            {
+              "type": "STRING",
+              "value": "-]]"
+            },
+            {
+              "type": "STRING",
+              "value": "=]]"
+            }
+          ]
         }
       ]
     },
